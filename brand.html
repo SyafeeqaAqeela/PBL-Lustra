@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900&display=swap');
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Glamor', sans-serif;
+            background-color: #EEE5D9;
+            height: 100%;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex-grow: 1;
+        }
+
+        footer {
+            background: linear-gradient(90deg, #D2B68A, #FFF1C0, #D2B68A);
+            background-size: 300% 300%;
+            animation: glitter 5s linear infinite;
+            color: black;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-icons i {
+            font-size: 2rem;
+        }
+
+        @keyframes glitter {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .brand-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .brand-item {
+            background: #FFF1C0;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .brand-item:hover {
+            transform: scale(1.05);
+        }
+
+        .description-section {
+            margin: 2rem;
+            padding: 2rem;
+            background: #FFF;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        .quiz-section {
+            margin: 2rem;
+            padding: 2rem;
+            background: #FFF;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        .quiz-section label {
+            display: block;
+            font-weight: bold;
+            margin: 1rem 0 0.5rem;
+        }
+
+        .quiz-section select {
+            margin: 0.5rem 0 1rem;
+            padding: 0.8rem;
+            width: 100%;
+            max-width: 300px;
+            border: 2px solid #D2B68A;
+            border-radius: 8px;
+            font-size: 1rem;
+            background-color: #FFF1C0;
+            color: #1a1a1a;
+        }
+
+        .quiz-section button {
+            margin-top: 1rem;
+            padding: 0.8rem 1.5rem;
+            background: #D2B68A;
+            color: black;
+            font-weight: bold;
+            border: 2px solid #D2B68A;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .quiz-section button:hover {
+            background: #FFF1C0;
+            color: #1a1a1a;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="glitter-nav">
+        <a href="index.html"><img src="logo.png" alt="Logo" style="width: 150px; margin-right: auto;"></a>
+        <ul style="display: flex; justify-content: flex-end; align-items: center; margin-left: auto;">
+            <li><a href="brand.html">Brand</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="review.html">Review</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div id="brand" class="brand-section">
+            <div class="brand-item" onclick="showDescriptionAndQuiz('h&m')">
+                <h2>H&M</h2>
+                <p>Clothes</p>
+            </div>
+            <div class="brand-item" onclick="showDescriptionAndQuiz('gap')">
+                <h2>GAP</h2>
+                <p>Pants/Skirts</p>
+            </div>
+            <div class="brand-item" onclick="showDescriptionAndQuiz('geneMartino')">
+                <h2>Gene Martino</h2>
+                <p>Hijab</p>
+            </div>
+            <div class="brand-item" onclick="showDescriptionAndQuiz('elianto')">
+                <h2>Elianto</h2>
+                <p>Perfume</p>
+            </div>
+            <div class="brand-item" onclick="showDescriptionAndQuiz('cartier')">
+                <h2>Cartier</h2>
+                <p>Accessories</p>
+            </div>
+        </div>
+
+        <section id="description-section" class="description-section">
+            <h2 id="description-title">About</h2>
+            <p id="description-text"></p>
+        </section>
+
+        <section id="quiz-section" class="quiz-section">
+            <h2 id="quiz-title">Find Your Perfect Match</h2>
+            <form id="quiz-form">
+                <label for="event">Where will you be using it?</label>
+                <select id="event" required>
+                    <option value="work">Work</option>
+                    <option value="wedding">Wedding</option>
+                    <option value="casual">Casual Outing</option>
+                </select>
+
+                <label for="time">What time is the event?</label>
+                <select id="time" required>
+                    <option value="morning">Morning</option>
+                    <option value="afternoon">Afternoon</option>
+                    <option value="evening">Evening</option>
+                </select>
+
+                <label for="style">What style do you prefer?</label>
+                <select id="style" required>
+                    <option value="simple">Simple</option>
+                    <option value="glamorous">Glamorous</option>
+                    <option value="traditional">Traditional</option>
+                </select>
+<br/>
+                <button type="button" onclick="getSuggestion()">Get Suggestion</button>
+            </form>
+            <div id="suggestion" style="margin-top:2rem; display:none;"></div>
+        </section>
+    </main>
+
+    <footer>
+        <h2>Contact Us</h2>
+        <div class="contact-icons">
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-tiktok"></i>
+            <i class="fas fa-envelope"></i>
+        </div>
+        <p><i class="fas fa-phone"></i> 013-932 8551 (Syafeeqa)</p>
+        <p><i class="fas fa-phone"></i> 012-838 1237 (Maheerah)</p>
+        <p><i class="fas fa-map-marker-alt"></i> Kolej Permata@Pintar Negara, Seremban,<br>Institut Pendidikan Guru Kampus, Jalan Sikamat,<br>Maktab Perguruan Raja Melewar, 70400 Seremban, Negeri Sembilan</p>
+    </footer>
+
+    <script>
+        function showDescriptionAndQuiz(brand) {
+            const descriptionSection = document.getElementById('description-section');
+            const quizSection = document.getElementById('quiz-section');
+
+            if (brand === 'h&m') {
+                document.getElementById('description-title').textContent = 'About H&M';
+                document.getElementById('description-text').textContent = 'H&M offers a wide variety of stylish and affordable clothing for all occasions, perfect for updating your wardrobe.';
+                document.getElementById('quiz-title').textContent = 'Find Your Perfect Outfit';
+            } else if (brand === 'gap') {
+                document.getElementById('description-title').textContent = 'About GAP';
+                document.getElementById('description-text').textContent = 'GAP provides high-quality pants and skirts that combine comfort with timeless style, making them a wardrobe staple.';
+                document.getElementById('quiz-title').textContent = 'Find Your Perfect Bottom';
+            } else if (brand === 'geneMartino') {
+                document.getElementById('description-title').textContent = 'About Gene Martino';
+                document.getElementById('description-text').textContent = 'Gene Martino offers a wide variety of elegant and trendy hijabs that suit every occasion. Known for their premium quality and comfort, Gene Martino hijabs are perfect for enhancing your style.';
+                document.getElementById('quiz-title').textContent = 'Find Your Perfect Hijab';
+            } else if (brand === 'elianto') {
+                document.getElementById('description-title').textContent = 'About Elianto';
+                document.getElementById('description-text').textContent = 'Elianto perfumes are crafted to captivate your senses with unique and refreshing fragrances. Perfect for every occasion, Elianto offers a variety of scents to complement your style.';
+                document.getElementById('quiz-title').textContent = 'Find Your Perfect Perfume';
+            } else if (brand === 'cartier') {
+                document.getElementById('description-title').textContent = 'About Cartier';
+                document.getElementById('description-text').textContent = 'Cartier offers luxurious accessories that elevate your style with their timeless elegance and exceptional craftsmanship.';
+                document.getElementById('quiz-title').textContent = 'Find Your Perfect Accessory';
+            }
+
+            descriptionSection.style.display = 'block';
+            quizSection.style.display = 'block';
+        }
+
+        function getSuggestion() {
+            const event = document.getElementById('event').value;
+            const time = document.getElementById('time').value;
+            const style = document.getElementById('style').value;
+
+            let suggestion = '';
+            if (event === 'wedding' && style === 'glamorous') {
+                suggestion = 'We recommend luxurious pieces for weddings with glamorous designs.';
+            } else if (event === 'work' && style === 'simple') {
+                suggestion = 'Try simple and elegant options that fit professional settings.';
+            } else {
+                suggestion = 'Explore versatile options to suit any event or style.';
+            }
+
+            const suggestionBox = document.getElementById('suggestion');
+            suggestionBox.innerHTML = `<p>${suggestion}</p>`;
+            suggestionBox.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
