@@ -3,11 +3,12 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     $username = $_POST['username']; 
     $password = $_POST['password']; 
 
-    
     if ($username === "SyafeeqaAqeela" && $password === "1234") { 
-        echo "Login successful!"; 
-        header("Location: index.html");
+        // Redirect to index.html on successful login
+        header("Location: brand.html"); 
+        exit(); 
     } else { 
+       
         echo "Invalid username or password."; 
     } 
 } else { 
